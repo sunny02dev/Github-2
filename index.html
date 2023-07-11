@@ -6,6 +6,51 @@
     body {
       text-align: center;
       font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+    .neon-wrapper {
+      position: relative;
+      overflow: hidden;
+    }
+    .neon-light {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    .neon-light:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff00ff);
+      background-size: 400% 400%;
+      animation: neon-animation 4s linear infinite;
+    }
+    @keyframes neon-animation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="neon-wrapper">
+    <div class="neon-light"></div>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
     }
     h1 {
       color: #FF4081;
@@ -41,7 +86,7 @@
   <div class="photo-container">
     <img src="https://i.pinimg.com/originals/19/ae/60/19ae60d624e81bfe550a82bebeb05edf.jpg" alt="Fotoğraf 1">
     <img src="https://pbs.twimg.com/media/EsQKRsAVcAEy37E.jpg" alt="Fotoğraf 2">
-    <img src="https://www.pngkey.com/png/detail/157-1572405_pink-heart-png-image-with-transparent-background-portable.png" alt="Fotoğraf 3">
+    <img src="file:///C:/Users/DESKTOP/Desktop/heart-5318030_1280.webp" alt="Fotoğraf 3">
   </div>
   <p class="heart-animation">❤️</p>
   <script>
@@ -51,6 +96,28 @@
         hearts[i].style.display = "none";
       }
     }, 4000);
+    function createHearts() {
+      var heartContainer = document.createElement('div');
+      heartContainer.className = 'heart-animation ' + getRandomColor();
+      heartContainer.style.left = Math.random() * (window.innerWidth - 30) + 'px';
+      heartContainer.style.animationDelay = Math.random() + 's';
+      
+      var heart = document.createElement('span');
+      heart.innerHTML = '❤️';
+      
+      heartContainer.appendChild(heart);
+      document.body.appendChild(heartContainer);
+    }
+    
+    function getRandomColor() {
+      var colors = ['red', 'pink'];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+    
+    for (var i = 0; i < 10; i++) {
+      setTimeout(createHearts, i * 1000);
+    }
   </script>
+  </div>
 </body>
 </html>
