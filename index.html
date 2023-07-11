@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For my future husband</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+    h1 {
+      color: #FF4081;
+    }
+    .heart-animation {
+      animation: flying-hearts 4s infinite;
+    }
+    @keyframes flying-hearts {
+      0% {
+        transform: translate(0, 0);
+      }
+      50% {
+        transform: translate(200px, -200px);
+      }
+      100% {
+        transform: translate(400px, 0);
+      }
+    }
+    .photo-container {
+      display: flex;
+      justify-content: center;
+    }
+    .photo-container img {
+      width: 300px;
+      border-radius: 10px;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Doğum Günün Kutlu Olsun Sevgilim!</h1>
+  <p>ANAN SENİ BENİM İÇİN DOĞURMUŞ YAVRUM</p>
+  <div class="photo-container">
+    <img src="https://i.pinimg.com/originals/19/ae/60/19ae60d624e81bfe550a82bebeb05edf.jpg" alt="Fotoğraf 1">
+    <img src="https://pbs.twimg.com/media/EsQKRsAVcAEy37E.jpg" alt="Fotoğraf 2">
+    <img src="https://www.pngkey.com/png/detail/157-1572405_pink-heart-png-image-with-transparent-background-portable.png" alt="Fotoğraf 3">
+  </div>
+  <p class="heart-animation">❤️</p>
+  <script>
+    setTimeout(function() {
+      var hearts = document.getElementsByClassName("heart-animation");
+      for (var i = 0; i < hearts.length; i++) {
+        hearts[i].style.display = "none";
+      }
+    }, 4000);
+  </script>
+</body>
+</html>
