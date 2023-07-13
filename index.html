@@ -19,6 +19,7 @@
       width: 100%;
       height: 100%;
       pointer-events: none;
+      z-index: -1;
     }
     .neon-light:before {
       content: "";
@@ -42,30 +43,18 @@
         background-position: 0% 50%;
       }
     }
+    .content {
+      position: relative;
+      z-index: 1; /* İçeriği neon ışıklarının üzerinde görüntüler */
+    }
     h1 {
       color: #FF4081;
-      font-size: 36px; /* Normal boyut */
-    }
-    .heart-animation {
-      position: absolute;
-      top: 0;
-      left: 0;
-      animation: flying-hearts 4s infinite;
-    }
-    @keyframes flying-hearts {
-      0% {
-        transform: translate(0, 0);
-      }
-      50% {
-        transform: translate(calc(100vw - 50px), calc(100vh - 50px));
-      }
-      100% {
-        transform: translate(calc(200vw - 100px), 0);
-      }
+      font-size: 36px;
     }
     .photo-container {
       display: flex;
       justify-content: center;
+      margin-top: 20px;
     }
     .photo-container img {
       width: 300px;
@@ -87,14 +76,22 @@
       font-size: 24px;
       margin-top: 10px;
     }
-    
-    /* Medya sorguları */
-    @media only screen and (max-width: 600px) {
-      h1 {
-        font-size: 24px; /* Küçük boyut */
+    .heart-animation {
+      position: absolute;
+      top: 0;
+      left: 0;
+      animation: flying-hearts 4s infinite;
+      z-index: 2; /* Kalplerin neon ışıklarının üzerinde görüntülenmesini sağlar */
+    }
+    @keyframes flying-hearts {
+      0% {
+        transform: translate(0, 0);
       }
-      .photo-container img {
-        width: 200px; /* Küçük boyut */
+      50% {
+        transform: translate(calc(100vw - 50px), calc(100vh - 50px));
+      }
+      100% {
+        transform: translate(calc(200vw - 100px), 0);
       }
     }
   </style>
@@ -110,7 +107,7 @@
         <img src="https://pbs.twimg.com/media/EsQKRsAVcAEy37E.jpg" alt="Fotoğraf 2">
         <img src="https://images.freeimages.com/images/large-previews/8e0/heart-1162713.jpg" alt="Fotoğraf 3">
       </div>
-      <button class="love-button">Seni Seviyoruuumm</button>
+      <button class="love-button">Seni Seviyorum</button>
       <p class="click-counter">Tıklama Sayısı: 0</p>
       <p class="heart-animation">❤️</p>
     </div>
