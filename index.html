@@ -1,16 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>For my future husband</title>
-</style>
-</head>
-<body>
-  <h1>Doğum Günün Kutlu Olsun Sevgilim!</h1>
-  <p>ANAN SENİ BENİM İÇİN DOĞURMUŞ YAVRUM</p>
-  <div class="photo-container">
-    <img src="https://i.pinimg.com/originals/19/ae/60/19ae60d624e81bfe550a82bebeb05edf.jpg" alt="Fotoğraf 1">
-    <img src="https://pbs.twimg.com/media/EsQKRsAVcAEy37E.jpg" alt="Fotoğraf 2">
-    <img src="https://images.freeimages.com/images/large-previews/8e0/heart-1162713.jpg" alt="Fotoğraf 3">
+  <title>For My Future Husband</title>
   <style>
     body {
       text-align: center;
@@ -51,20 +42,14 @@
         background-position: 0% 50%;
       }
     }
-  </style>
-      </head>
-      <body>
-  <div class="neon-wrapper">
-    <div class="neon-light"></div>
-  <style>
-    body {
-      text-align: center;
-      font-family: Arial, sans-serif;
-    }
     h1 {
       color: #FF4081;
+      font-size: 36px; /* Normal boyut */
     }
     .heart-animation {
+      position: absolute;
+      top: 0;
+      left: 0;
       animation: flying-hearts 4s infinite;
     }
     @keyframes flying-hearts {
@@ -72,10 +57,10 @@
         transform: translate(0, 0);
       }
       50% {
-        transform: translate(200px, -200px);
+        transform: translate(calc(100vw - 50px), calc(100vh - 50px));
       }
       100% {
-        transform: translate(400px, 0);
+        transform: translate(calc(200vw - 100px), 0);
       }
     }
     .photo-container {
@@ -87,40 +72,79 @@
       border-radius: 10px;
       margin: 10px;
     }
+    .love-button {
+      background-color: pink;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .click-counter {
+      color: pink;
+      font-size: 24px;
+      margin-top: 10px;
+    }
+    
+    /* Medya sorguları */
+    @media only screen and (max-width: 600px) {
+      h1 {
+        font-size: 24px; /* Küçük boyut */
+      }
+      .photo-container img {
+        width: 200px; /* Küçük boyut */
+      }
+    }
   </style>
 </head>
-<body> 
+<body>
+  <div class="neon-wrapper">
+    <div class="neon-light"></div>
+    <div class="content">
+      <h1>Doğum Günün Kutlu Olsun Sevgilim!</h1>
+      <p>ANAN SENİ BENİM İÇİN DOĞURMUŞ YAVRUM</p>
+      <div class="photo-container">
+        <img src="https://i.pinimg.com/originals/19/ae/60/19ae60d624e81bfe550a82bebeb05edf.jpg" alt="Fotoğraf 1">
+        <img src="https://pbs.twimg.com/media/EsQKRsAVcAEy37E.jpg" alt="Fotoğraf 2">
+        <img src="https://images.freeimages.com/images/large-previews/8e0/heart-1162713.jpg" alt="Fotoğraf 3">
+      </div>
+      <button class="love-button">Seni Seviyoruuumm</button>
+      <p class="click-counter">Tıklama Sayısı: 0</p>
+      <p class="heart-animation">❤️</p>
+    </div>
   </div>
-  <p class="heart-animation">❤️</p>
+  
   <script>
+    var loveButton = document.querySelector('.love-button');
+    var clickCounter = document.querySelector('.click-counter');
+    var clickCount = 0;
+    
+    loveButton.addEventListener('click', function() {
+      clickCount++;
+      clickCounter.textContent = 'Tıklama Sayısı: ' + clickCount;
+      
+      var audio = new Audio('Character Gone (Anime Sound) - Sound Effect for Editing.mp3');
+      audio.play();
+    });
+    
     setTimeout(function() {
       var hearts = document.getElementsByClassName("heart-animation");
       for (var i = 0; i < hearts.length; i++) {
         hearts[i].style.display = "none";
       }
     }, 4000);
+    
     function createHearts() {
-      var heartContainer = document.createElement('div');
-      heartContainer.className = 'heart-animation ' + getRandomColor();
-      heartContainer.style.left = Math.random() * (window.innerWidth - 30) + 'px';
-      heartContainer.style.animationDelay = Math.random() + 's';
-      
-      var heart = document.createElement('span');
+      var heart = document.createElement('p');
+      heart.className = 'heart-animation';
       heart.innerHTML = '❤️';
-      
-      heartContainer.appendChild(heart);
-      document.body.appendChild(heartContainer);
+      heart.style.left = Math.random() * (window.innerWidth - 50) + 'px';
+      document.querySelector('.content').appendChild(heart);
     }
     
-    function getRandomColor() {
-      var colors = ['red', 'pink'];
-      return colors[Math.floor(Math.random() * colors.length)];
-    }
-    
-    for (var i = 0; i < 10; i++) {
-      setTimeout(createHearts, i * 1000);
-    }
+    setInterval(createHearts, 500);
   </script>
-  </div>
 </body>
 </html>
