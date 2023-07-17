@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>For My Future Husband ♥</title>
+  <title>For My Future Husband</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       text-align: center;
       font-family: Arial, sans-serif;
-      margin: 0; /* Kenar boşluklarını kaldırır */
-      padding: 0; /* Kenar boşluklarını kaldırır */
+      overflow: hidden;
     }
     .neon-wrapper {
       position: relative;
-      width: 100%;
-      height: 100vh; /* Sayfanın yüksekliği kadar yükseklik ayarlar */
       overflow: hidden;
     }
     .neon-light {
@@ -48,8 +46,7 @@
     }
     .content {
       position: relative;
-      z-index: 2;
-      padding: 20px;
+      z-index: 1; /* İçeriği neon ışıklarının üzerinde görüntüler */
     }
     h1 {
       color: #FF4081;
@@ -85,7 +82,7 @@
       top: 0;
       left: 0;
       animation: flying-hearts 4s infinite;
-      z-index: 3;
+      z-index: 2; /* Kalplerin neon ışıklarının üzerinde görüntülenmesini sağlar */
     }
     @keyframes flying-hearts {
       0% {
@@ -96,16 +93,6 @@
       }
       100% {
         transform: translate(calc(200vw - 100px), 0);
-      }
-    }
-    
-    /* Medya sorguları */
-    @media only screen and (max-width: 600px) {
-      h1 {
-        font-size: 24px;
-      }
-      .photo-container img {
-        width: 200px;
       }
     }
   </style>
@@ -136,7 +123,7 @@
       clickCount++;
       clickCounter.textContent = 'Tıklama Sayısı: ' + clickCount;
       
-      var audio = new Audio('ses-dosyasi.mp3');
+      var audio = new Audio('Character Gone (Anime Sound) - Sound Effect for Editing.mp3');
       audio.play();
     });
     
