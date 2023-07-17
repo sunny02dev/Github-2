@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>For My Future Husband</title>
+  <title>For My Future Husband ♥</title>
   <style>
     body {
       text-align: center;
       font-family: Arial, sans-serif;
       overflow: hidden;
+      margin: 0; /* Kenar boşluklarını kaldırır */
+      padding: 0; /* Kenar boşluklarını kaldırır */
     }
     .neon-wrapper {
       position: relative;
       overflow: hidden;
+      width: 100vw; /* Sayfanın genişliği kadar genişlik ayarlar */
+      height: 100vh; /* Sayfanın yüksekliği kadar yükseklik ayarlar */
     }
     .neon-light {
       position: absolute;
@@ -45,7 +49,7 @@
     }
     .content {
       position: relative;
-      z-index: 1; /* İçeriği neon ışıklarının üzerinde görüntüler */
+      z-index: 2;
     }
     h1 {
       color: #FF4081;
@@ -81,7 +85,7 @@
       top: 0;
       left: 0;
       animation: flying-hearts 4s infinite;
-      z-index: 2; /* Kalplerin neon ışıklarının üzerinde görüntülenmesini sağlar */
+      z-index: 3;
     }
     @keyframes flying-hearts {
       0% {
@@ -94,23 +98,33 @@
         transform: translate(calc(200vw - 100px), 0);
       }
     }
+    
+    /* Medya sorguları */
+    @media only screen and (max-width: 600px) {
+      h1 {
+        font-size: 24px;
+      }
+      .photo-container img {
+        width: 200px;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="neon-wrapper">
     <div class="neon-light"></div>
-    <div class="content">
-      <h1>Doğum Günün Kutlu Olsun Sevgilim!</h1>
-      <p>ANAN SENİ BENİM İÇİN DOĞURMUŞ YAVRUM</p>
-      <div class="photo-container">
-        <img src="https://i.pinimg.com/originals/19/ae/60/19ae60d624e81bfe550a82bebeb05edf.jpg" alt="Fotoğraf 1">
-        <img src="https://pbs.twimg.com/media/EsQKRsAVcAEy37E.jpg" alt="Fotoğraf 2">
-        <img src="https://images.freeimages.com/images/large-previews/8e0/heart-1162713.jpg" alt="Fotoğraf 3">
-      </div>
-      <button class="love-button">Seni Seviyorum</button>
-      <p class="click-counter">Tıklama Sayısı: 0</p>
-      <p class="heart-animation">❤️</p>
+  </div>
+  <div class="content">
+    <h1>Doğum Günün Kutlu Olsun Sevgilim!</h1>
+    <p>ANAN SENİ BENİM İÇİN DOĞURMUŞ YAVRUM</p>
+    <div class="photo-container">
+      <img src="https://i.pinimg.com/originals/19/ae/60/19ae60d624e81bfe550a82bebeb05edf.jpg" alt="Fotoğraf 1">
+      <img src="https://pbs.twimg.com/media/EsQKRsAVcAEy37E.jpg" alt="Fotoğraf 2">
+      <img src="https://images.freeimages.com/images/large-previews/8e0/heart-1162713.jpg" alt="Fotoğraf 3">
     </div>
+    <button class="love-button">Seni Seviyorum</button>
+    <p class="click-counter">Tıklama Sayısı: 0</p>
+    <p class="heart-animation">❤️</p>
   </div>
   
   <script>
@@ -122,7 +136,7 @@
       clickCount++;
       clickCounter.textContent = 'Tıklama Sayısı: ' + clickCount;
       
-      var audio = new Audio('Character Gone (Anime Sound) - Sound Effect for Editing.mp3');
+      var audio = new Audio('ses-dosyasi.mp3');
       audio.play();
     });
     
