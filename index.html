@@ -6,15 +6,15 @@
     body {
       text-align: center;
       font-family: Arial, sans-serif;
-      overflow: hidden;
       margin: 0; /* Kenar boşluklarını kaldırır */
       padding: 0; /* Kenar boşluklarını kaldırır */
     }
     .neon-wrapper {
       position: relative;
-      overflow: hidden;
-      width: 100vw; /* Sayfanın genişliği kadar genişlik ayarlar */
+      width: 100%;
       height: 100vh; /* Sayfanın yüksekliği kadar yükseklik ayarlar */
+      overflow: hidden;
+      z-index: -1;
     }
     .neon-light {
       position: absolute;
@@ -23,7 +23,6 @@
       width: 100%;
       height: 100%;
       pointer-events: none;
-      z-index: -1;
     }
     .neon-light:before {
       content: "";
@@ -50,6 +49,7 @@
     .content {
       position: relative;
       z-index: 2;
+      padding: 20px;
     }
     h1 {
       color: #FF4081;
