@@ -14,7 +14,6 @@
       width: 100%;
       height: 100vh; /* Sayfanın yüksekliği kadar yükseklik ayarlar */
       overflow: hidden;
-      z-index: -1;
     }
     .neon-light {
       position: absolute;
@@ -23,6 +22,7 @@
       width: 100%;
       height: 100%;
       pointer-events: none;
+      z-index: -1;
     }
     .neon-light:before {
       content: "";
@@ -113,18 +113,18 @@
 <body>
   <div class="neon-wrapper">
     <div class="neon-light"></div>
-  </div>
-  <div class="content">
-    <h1>Doğum Günün Kutlu Olsun Sevgilim!</h1>
-    <p>ANAN SENİ BENİM İÇİN DOĞURMUŞ YAVRUM</p>
-    <div class="photo-container">
-      <img src="https://i.pinimg.com/originals/19/ae/60/19ae60d624e81bfe550a82bebeb05edf.jpg" alt="Fotoğraf 1">
-      <img src="https://pbs.twimg.com/media/EsQKRsAVcAEy37E.jpg" alt="Fotoğraf 2">
-      <img src="https://images.freeimages.com/images/large-previews/8e0/heart-1162713.jpg" alt="Fotoğraf 3">
+    <div class="content">
+      <h1>Doğum Günün Kutlu Olsun Sevgilim!</h1>
+      <p>ANAN SENİ BENİM İÇİN DOĞURMUŞ YAVRUM</p>
+      <div class="photo-container">
+        <img src="https://i.pinimg.com/originals/19/ae/60/19ae60d624e81bfe550a82bebeb05edf.jpg" alt="Fotoğraf 1">
+        <img src="https://pbs.twimg.com/media/EsQKRsAVcAEy37E.jpg" alt="Fotoğraf 2">
+        <img src="https://images.freeimages.com/images/large-previews/8e0/heart-1162713.jpg" alt="Fotoğraf 3">
+      </div>
+      <button class="love-button">Seni Seviyorum</button>
+      <p class="click-counter">Tıklama Sayısı: 0</p>
+      <p class="heart-animation">❤️</p>
     </div>
-    <button class="love-button">Seni Seviyorum</button>
-    <p class="click-counter">Tıklama Sayısı: 0</p>
-    <p class="heart-animation">❤️</p>
   </div>
   
   <script>
